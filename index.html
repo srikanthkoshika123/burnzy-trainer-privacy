@@ -1,105 +1,361 @@
-# Privacy and Data Policy for Burnzy Trainer App
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Burnzy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(to bottom right, #fff7ed, #fef2f2);
+        }
+        .gradient-orange {
+            background: linear-gradient(to right, #f97316, #ef4444);
+        }
+        .section-content {
+            display: none;
+        }
+        .section-content.active {
+            display: block;
+        }
+        .chevron {
+            transition: transform 0.3s ease;
+        }
+        .chevron.rotated {
+            transform: rotate(-90deg);
+        }
+        .chevron.default {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body class="gradient-bg min-h-screen">
 
-**Effective Date:** September 04, 2025  
-**Last Updated:** September 04, 2025
+    <!-- Header -->
+    <div class="bg-white shadow-sm sticky top-0 z-10">
+        <div class="flex items-center justify-between p-4">
+            <div class="flex items-center space-x-3">
+                <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+                <div>
+                    <h1 class="text-lg font-semibold text-gray-900">Privacy Policy</h1>
+                    <p class="text-sm text-gray-500">Your data, protected</p>
+                </div>
+            </div>
+            <div class="bg-orange-100 p-2 rounded-full">
+                <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                </svg>
+            </div>
+        </div>
+    </div>
 
-## 1. Introduction
+    <!-- Content -->
+    <div class="px-4 py-6 space-y-4">
+        
+        <!-- Trust Badge -->
+        <div class="bg-white rounded-xl p-6 shadow-sm border border-orange-100">
+            <div class="text-center">
+                <div class="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                    </svg>
+                </div>
+                <h2 class="text-xl font-semibold text-gray-900 mb-2">Your Privacy Matters</h2>
+                <p class="text-gray-600 text-sm leading-relaxed">
+                    At Burnzy, we're committed to protecting your personal information and being transparent about how we use your data to provide the best fitness experience.
+                </p>
+            </div>
+        </div>
 
-Welcome to Burnzy Trainer App ("we," "our," or "us"). We are committed to protecting your privacy and ensuring the security of your personal information. This Privacy and Data Policy explains how we collect, use, store, and protect your information when you use our training application and related services.
+        <!-- Quick Summary -->
+        <div class="gradient-orange rounded-xl p-6 text-white">
+            <h3 class="font-semibold mb-3 flex items-center">
+                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                </svg>
+                Privacy at a Glance
+            </h3>
+            <div class="space-y-2 text-sm opacity-95">
+                <div class="flex items-center space-x-2">
+                    <div class="w-2 h-2 bg-white rounded-full"></div>
+                    <span>We collect health data to personalize your fitness journey</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <div class="w-2 h-2 bg-white rounded-full"></div>
+                    <span>Your trainer sees relevant fitness info to keep you safe</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <div class="w-2 h-2 bg-white rounded-full"></div>
+                    <span>All data is encrypted and securely stored</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <div class="w-2 h-2 bg-white rounded-full"></div>
+                    <span>You control your data and can delete it anytime</span>
+                </div>
+            </div>
+        </div>
 
-By using our app, you agree to the collection and use of information in accordance with this policy. If you do not agree, please do not use our services.
+        <!-- Expandable Sections -->
+        <div class="space-y-3">
+            
+            <!-- Data Collection Section -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                <button onclick="toggleSection('data-collection')" class="w-full p-4 flex items-center justify-between hover:bg-gray-50 transition-colors">
+                    <div class="flex items-center space-x-3">
+                        <div class="bg-orange-100 p-2 rounded-lg text-orange-600">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"></path>
+                            </svg>
+                        </div>
+                        <div class="text-left">
+                            <h3 class="font-medium text-gray-900">What Information We Collect</h3>
+                            <p class="text-sm text-gray-500 mt-1">Personal details, health data, and dietary preferences</p>
+                        </div>
+                    </div>
+                    <svg class="w-5 h-5 text-gray-400 chevron default" id="chevron-data-collection" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                    </svg>
+                </button>
+                
+                <div id="content-data-collection" class="section-content px-4 pb-4 border-t border-gray-100">
+                    <div class="pt-4 space-y-2">
+                        <div class="flex items-start space-x-2 text-sm text-gray-700">
+                            <div class="w-1.5 h-1.5 bg-orange-400 rounded-full mt-2 flex-shrink-0"></div>
+                            <span class="leading-relaxed">Personal Information: Full name, email, phone number, age, gender, height, weight</span>
+                        </div>
+                        <div class="flex items-start space-x-2 text-sm text-gray-700">
+                            <div class="w-1.5 h-1.5 bg-orange-400 rounded-full mt-2 flex-shrink-0"></div>
+                            <span class="leading-relaxed">Health & Fitness Data: BMI, body fat %, strength baselines, heart rate, blood pressure</span>
+                        </div>
+                        <div class="flex items-start space-x-2 text-sm text-gray-700">
+                            <div class="w-1.5 h-1.5 bg-orange-400 rounded-full mt-2 flex-shrink-0"></div>
+                            <span class="leading-relaxed">Medical Information: Health conditions, allergies, medical notes (voluntary)</span>
+                        </div>
+                        <div class="flex items-start space-x-2 text-sm text-gray-700">
+                            <div class="w-1.5 h-1.5 bg-orange-400 rounded-full mt-2 flex-shrink-0"></div>
+                            <span class="leading-relaxed">Dietary Preferences: Food choices, cuisine preferences, cooking setup, budget</span>
+                        </div>
+                        <div class="flex items-start space-x-2 text-sm text-gray-700">
+                            <div class="w-1.5 h-1.5 bg-orange-400 rounded-full mt-2 flex-shrink-0"></div>
+                            <span class="leading-relaxed">Progress Data: Goals, measurements, training progress, coach notes</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-## 2. Information We Collect
+            <!-- Data Usage Section -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                <button onclick="toggleSection('data-usage')" class="w-full p-4 flex items-center justify-between hover:bg-gray-50 transition-colors">
+                    <div class="flex items-center space-x-3">
+                        <div class="bg-orange-100 p-2 rounded-lg text-orange-600">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                            </svg>
+                        </div>
+                        <div class="text-left">
+                            <h3 class="font-medium text-gray-900">How We Use Your Data</h3>
+                            <p class="text-sm text-gray-500 mt-1">Personalized training, meal planning, and progress tracking</p>
+                        </div>
+                    </div>
+                    <svg class="w-5 h-5 text-gray-400 chevron default" id="chevron-data-usage" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                    </svg>
+                </button>
+                
+                <div id="content-data-usage" class="section-content px-4 pb-4 border-t border-gray-100">
+                    <div class="pt-4 space-y-2">
+                        <div class="flex items-start space-x-2 text-sm text-gray-700">
+                            <div class="w-1.5 h-1.5 bg-orange-400 rounded-full mt-2 flex-shrink-0"></div>
+                            <span class="leading-relaxed">Create customized workout plans based on your fitness level</span>
+                        </div>
+                        <div class="flex items-start space-x-2 text-sm text-gray-700">
+                            <div class="w-1.5 h-1.5 bg-orange-400 rounded-full mt-2 flex-shrink-0"></div>
+                            <span class="leading-relaxed">Design meal plans suited to your dietary preferences and health needs</span>
+                        </div>
+                        <div class="flex items-start space-x-2 text-sm text-gray-700">
+                            <div class="w-1.5 h-1.5 bg-orange-400 rounded-full mt-2 flex-shrink-0"></div>
+                            <span class="leading-relaxed">Track your progress and adjust plans accordingly</span>
+                        </div>
+                        <div class="flex items-start space-x-2 text-sm text-gray-700">
+                            <div class="w-1.5 h-1.5 bg-orange-400 rounded-full mt-2 flex-shrink-0"></div>
+                            <span class="leading-relaxed">Match you with suitable trainers based on your goals</span>
+                        </div>
+                        <div class="flex items-start space-x-2 text-sm text-gray-700">
+                            <div class="w-1.5 h-1.5 bg-orange-400 rounded-full mt-2 flex-shrink-0"></div>
+                            <span class="leading-relaxed">Calculate health metrics (BMI, body fat %) automatically</span>
+                        </div>
+                        <div class="flex items-start space-x-2 text-sm text-gray-700">
+                            <div class="w-1.5 h-1.5 bg-orange-400 rounded-full mt-2 flex-shrink-0"></div>
+                            <span class="leading-relaxed">Ensure your safety through health condition monitoring</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-### 2.1 Personal Information
-- **Account Information:** Name, email address, phone number (for clients and trainers).
-- **Profile Information:** Role (client or trainer), preferences related to training schedules.
+            <!-- Data Sharing Section -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                <button onclick="toggleSection('data-sharing')" class="w-full p-4 flex items-center justify-between hover:bg-gray-50 transition-colors">
+                    <div class="flex items-center space-x-3">
+                        <div class="bg-orange-100 p-2 rounded-lg text-orange-600">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                            </svg>
+                        </div>
+                        <div class="text-left">
+                            <h3 class="font-medium text-gray-900">Data Sharing with Trainers</h3>
+                            <p class="text-sm text-gray-500 mt-1">Your trainer sees relevant health and fitness information</p>
+                        </div>
+                    </div>
+                    <svg class="w-5 h-5 text-gray-400 chevron default" id="chevron-data-sharing" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                    </svg>
+                </button>
+                
+                <div id="content-data-sharing" class="section-content px-4 pb-4 border-t border-gray-100">
+                    <div class="pt-4 space-y-2">
+                        <div class="flex items-start space-x-2 text-sm text-gray-700">
+                            <div class="w-1.5 h-1.5 bg-orange-400 rounded-full mt-2 flex-shrink-0"></div>
+                            <span class="leading-relaxed">Health assessments and fitness data for safe training</span>
+                        </div>
+                        <div class="flex items-start space-x-2 text-sm text-gray-700">
+                            <div class="w-1.5 h-1.5 bg-orange-400 rounded-full mt-2 flex-shrink-0"></div>
+                            <span class="leading-relaxed">Dietary preferences and restrictions for meal planning</span>
+                        </div>
+                        <div class="flex items-start space-x-2 text-sm text-gray-700">
+                            <div class="w-1.5 h-1.5 bg-orange-400 rounded-full mt-2 flex-shrink-0"></div>
+                            <span class="leading-relaxed">Progress tracking and goal achievement data</span>
+                        </div>
+                        <div class="flex items-start space-x-2 text-sm text-gray-700">
+                            <div class="w-1.5 h-1.5 bg-orange-400 rounded-full mt-2 flex-shrink-0"></div>
+                            <span class="leading-relaxed">Medical conditions relevant to training safety</span>
+                        </div>
+                        <div class="flex items-start space-x-2 text-sm text-gray-700">
+                            <div class="w-1.5 h-1.5 bg-orange-400 rounded-full mt-2 flex-shrink-0"></div>
+                            <span class="leading-relaxed">Your trainer cannot see payment or contact information</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-### 2.2 Communication Data
-- **Support Interactions:** Customer service communications and feedback.
+            <!-- Data Security Section -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                <button onclick="toggleSection('data-security')" class="w-full p-4 flex items-center justify-between hover:bg-gray-50 transition-colors">
+                    <div class="flex items-center space-x-3">
+                        <div class="bg-orange-100 p-2 rounded-lg text-orange-600">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                            </svg>
+                        </div>
+                        <div class="text-left">
+                            <h3 class="font-medium text-gray-900">Data Security</h3>
+                            <p class="text-sm text-gray-500 mt-1">Bank-level encryption and secure storage</p>
+                        </div>
+                    </div>
+                    <svg class="w-5 h-5 text-gray-400 chevron default" id="chevron-data-security" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                    </svg>
+                </button>
+                
+                <div id="content-data-security" class="section-content px-4 pb-4 border-t border-gray-100">
+                    <div class="pt-4 space-y-2">
+                        <div class="flex items-start space-x-2 text-sm text-gray-700">
+                            <div class="w-1.5 h-1.5 bg-orange-400 rounded-full mt-2 flex-shrink-0"></div>
+                            <span class="leading-relaxed">All data encrypted during transmission and storage</span>
+                        </div>
+                        <div class="flex items-start space-x-2 text-sm text-gray-700">
+                            <div class="w-1.5 h-1.5 bg-orange-400 rounded-full mt-2 flex-shrink-0"></div>
+                            <span class="leading-relaxed">Photos and images are encrypted and securely stored</span>
+                        </div>
+                        <div class="flex items-start space-x-2 text-sm text-gray-700">
+                            <div class="w-1.5 h-1.5 bg-orange-400 rounded-full mt-2 flex-shrink-0"></div>
+                            <span class="leading-relaxed">Regular security audits and vulnerability assessments</span>
+                        </div>
+                        <div class="flex items-start space-x-2 text-sm text-gray-700">
+                            <div class="w-1.5 h-1.5 bg-orange-400 rounded-full mt-2 flex-shrink-0"></div>
+                            <span class="leading-relaxed">Access controls with multi-factor authentication</span>
+                        </div>
+                        <div class="flex items-start space-x-2 text-sm text-gray-700">
+                            <div class="w-1.5 h-1.5 bg-orange-400 rounded-full mt-2 flex-shrink-0"></div>
+                            <span class="leading-relaxed">Secure cloud infrastructure with industry certifications</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-## 3. How We Use Your Information
+            <!-- User Rights Section -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                <button onclick="toggleSection('user-rights')" class="w-full p-4 flex items-center justify-between hover:bg-gray-50 transition-colors">
+                    <div class="flex items-center space-x-3">
+                        <div class="bg-orange-100 p-2 rounded-lg text-orange-600">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                        </div>
+                        <div class="text-left">
+                            <h3 class="font-medium text-gray-900">Your Rights & Controls</h3>
+                            <p class="text-sm text-gray-500 mt-1">Access, update, or delete your information anytime</p>
+                        </div>
+                    </div>
+                    <svg class="w-5 h-5 text-gray-400 chevron default" id="chevron-user-rights" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                    </svg>
+                </button>
+                
+                <div id="content-user-rights" class="section-content px-4 pb-4 border-t border-gray-100">
+                    <div class="pt-4 space-y-2">
+                        <div class="flex items-start space-x-2 text-sm text-gray-700">
+                            <div class="w-1.5 h-1.5 bg-orange-400 rounded-full mt-2 flex-shrink-0"></div>
+                            <span class="leading-relaxed">View all information we have about you</span>
+                        </div>
+                        <div class="flex items-start space-x-2 text-sm text-gray-700">
+                            <div class="w-1.5 h-1.5 bg-orange-400 rounded-full mt-2 flex-shrink-0"></div>
+                            <span class="leading-relaxed">Update your health and fitness data anytime</span>
+                        </div>
+                        <div class="flex items-start space-x-2 text-sm text-gray-700">
+                            <div class="w-1.5 h-1.5 bg-orange-400 rounded-full mt-2 flex-shrink-0"></div>
+                            <span class="leading-relaxed">Control what information is shared with trainers</span>
+                        </div>
+                        <div class="flex items-start space-x-2 text-sm text-gray-700">
+                            <div class="w-1.5 h-1.5 bg-orange-400 rounded-full mt-2 flex-shrink-0"></div>
+                            <span class="leading-relaxed">Modify your dietary preferences and goals</span>
+                        </div>
+                        <div class="flex items-start space-x-2 text-sm text-gray-700">
+                            <div class="w-1.5 h-1.5 bg-orange-400 rounded-full mt-2 flex-shrink-0"></div>
+                            <span class="leading-relaxed">Request correction of inaccurate information</span>
+                        </div>
+                        <div class="flex items-start space-x-2 text-sm text-gray-700">
+                            <div class="w-1.5 h-1.5 bg-orange-400 rounded-full mt-2 flex-shrink-0"></div>
+                            <span class="leading-relaxed">Delete your account and all associated data</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-### 3.1 Primary Purposes
-- Provide training management and scheduling services.
-- Facilitate communication between clients and trainers.
-- Communicate important updates and notifications.
+            <!-- Data Retention Section -->
+            <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+                <button onclick="toggleSection('data-retention')" class="w-full p-4 flex items-center justify-between hover:bg-gray-50 transition-colors">
+                    <div class="flex items-center space-x-3">
+                        <div class="bg-orange-100 p-2 rounded-lg text-orange-600">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <div class="text-left">
+                            <h3 class="font-medium text-gray-900">Data Retention</h3>
+                            <p class="text-sm text-gray-500 mt-1">How long we keep your information</p>
+                        </div>
+                    </div>
+                    <svg class="w-5 h-5 text-gray-400 chevron default" id="chevron-data-retention" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                    </svg>
+                </button>
+                
+                <div id="content-data-retention" class="section-content px-4 pb-4 border-t border-gray-100">
+                    <div class="pt-4 space-y-2">
+                        <div class="flex items-start space-x-2 text-sm text-gray-700">
+                            <div class="w-1.5 h-1.5 bg-orange-400 rounded-full mt-2 flex-shrink-0"></div>
 
-### 3.2 Secondary Purposes
-- Improve app functionality and user experience.
-- Ensure platform safety and prevent fraud.
-- Comply with legal obligations.
-
-## 4. Information Sharing and Disclosure
-
-### 4.1 Trainer-Client Interactions
-- Client and trainer names, contact details, and scheduling data shared for training purposes.
-
-### 4.2 Legal Requirements
-- Protection of rights, property, or safety of users and the public.
-- Prevention of fraud, abuse, or illegal activities.
-
-## 5. Data Security
-
-### 5.1 Technical Safeguards
-- **Encryption:** All data transmitted and stored is encrypted using industry-standard protocols.
-- **Regular Security Audits:** Periodic assessments to ensure data protection.
-
-### 5.2 Organizational Safeguards
-- **Privacy Training:** Staff trained on data protection.
-- **Data Minimization:** Collection limited to necessary information.
-- **Incident Response:** Procedures for managing data breaches.
-
-## 6. User Rights and Controls
-
-### 6.1 Access and Portability
-- View all personal information we have collected.
-- Request corrections to inaccurate information.
-
-### 6.2 Privacy Controls
-- **Communication Preferences:** Manage notification settings.
-
-### 6.3 Account Management
-- **Profile Visibility:** Control public profile information.
-
-## 7. Data Retention
-
-### 7.1 Active Accounts
-- Personal and communication data retained while account is active.
-
-### 7.2 Inactive/Deleted Accounts
-- **Account Deletion:** Complete data removal within 30 days of request.
-- **Automatic Cleanup:** Inactive accounts flagged after 2 years of non-use.
-- **Legal Retention:** Some data retained longer if required by law.
-
-## 9. Children's Privacy
-
-Our app is not intended for children under 16. We do not knowingly collect personal information from children under this age. If we become aware of such collection, we will delete the information immediately.
-
-## 10. Your Choices and Rights
-
-### 10.1 General Rights
-- **Right to Access:** Request information about data processing.
-- **Right to Rectification:** Correct inaccurate personal information.
-- **Right to Erasure:** Request deletion of personal data.
-- **Right to Portability:** Receive data in a structured, machine-readable format.
-
-### 10.2 Exercising Your Rights
-To exercise any of these rights, contact us at tech@ecosleek.in. We will respond within 30 days.
-
-## 12. Updates to This Policy
-
-We may update this policy to reflect changes in our practices or legal requirements.
-
-## 14. Contact Information
-
-### 14.1 Privacy Officer
-- **Email:** tech@ecosleek.in
-- **Address:**
-
-### 14.2 Customer Support
-- **Email:** tech@ecosleek.in
-
----
-
-**Acknowledgment:** By using Burnzy Trainer App, you acknowledge that you have read, understood, and agree to be bound by this Privacy and Data Policy.
