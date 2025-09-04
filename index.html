@@ -1,154 +1,521 @@
-import React, { useState } from 'react';
-import { ChevronLeft, Shield, CheckCircle, XCircle } from 'lucide-react';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burnzy Privacy Policy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-export default function BurnzyPrivacyPolicy() {
-  const [showFullPolicy, setShowFullPolicy] = useState(false);
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #000 0%, #1a1a1a 50%, #000 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
 
-  const handleAccept = () => {
-    // Handle accept logic here
-    console.log("Privacy policy accepted");
-    // Navigate to next screen or close modal
-  };
+        .container {
+            min-height: 100vh;
+            position: relative;
+        }
 
-  const handleDecline = () => {
-    // Handle decline logic here
-    console.log("Privacy policy declined");
-    // Show warning or exit app
-  };
+        /* Animated background */
+        .bg-animation {
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(200, 255, 0, 0.05) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+            pointer-events: none;
+        }
 
-  return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <div className="bg-white shadow-sm">
-        <div className="flex items-center justify-between p-4">
-          <div className="flex items-center space-x-3">
-            <ChevronLeft className="w-6 h-6 text-gray-600" />
-            <h1 className="text-lg font-semibold text-gray-900">Privacy Policy</h1>
-          </div>
-          <div className="bg-orange-100 p-2 rounded-full">
-            <Shield className="w-6 h-6 text-orange-600" />
-          </div>
-        </div>
-      </div>
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
 
-      {/* Content */}
-      <div className="px-4 py-6">
-        
-        {/* Main Card */}
-        <div className="bg-white rounded-xl p-6 shadow-sm mb-6">
-          <div className="text-center mb-6">
-            <div className="bg-orange-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Shield className="w-8 h-8 text-orange-600" />
-            </div>
-            <h2 className="text-xl font-semibold text-gray-900 mb-2">Your Privacy & Data</h2>
-            <p className="text-gray-600 text-sm">
-              We need your consent to collect and use your information to provide personalized fitness services.
-            </p>
-          </div>
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(200, 255, 0, 0.2);
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            z-index: 2;
+        }
 
-          {/* Key Points */}
-          <div className="space-y-4 mb-6">
-            <div className="border-l-4 border-orange-400 pl-4">
-              <h3 className="font-medium text-gray-900 mb-1">What we collect:</h3>
-              <p className="text-sm text-gray-600">Personal info, health data, dietary preferences, and fitness progress</p>
-            </div>
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .back-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(200, 255, 0, 0.3);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .back-btn:hover {
+            background: rgba(200, 255, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .header h1 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .shield-icon {
+            background: rgba(200, 255, 0, 0.15);
+            border: 1px solid rgba(200, 255, 0, 0.4);
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 20px rgba(200, 255, 0, 0.3);
+        }
+
+        /* Main content */
+        .content {
+            padding: 24px 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .main-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(200, 255, 0, 0.2);
+            border-radius: 16px;
+            padding: 24px;
+            backdrop-filter: blur(20px);
+            margin-bottom: 24px;
+        }
+
+        .intro-section {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .intro-icon {
+            background: rgba(200, 255, 0, 0.15);
+            border: 1px solid rgba(200, 255, 0, 0.4);
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+            box-shadow: 0 0 30px rgba(200, 255, 0, 0.3);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 30px rgba(200, 255, 0, 0.3); transform: scale(1); }
+            50% { box-shadow: 0 0 40px rgba(200, 255, 0, 0.5); transform: scale(1.02); }
+            100% { box-shadow: 0 0 30px rgba(200, 255, 0, 0.3); transform: scale(1); }
+        }
+
+        .intro-section h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+
+        .intro-section p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 14px;
+        }
+
+        /* Key points */
+        .key-points {
+            margin-bottom: 24px;
+        }
+
+        .point {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 12px;
+            border-left: 4px solid #C8FF00;
+        }
+
+        .point h3 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #C8FF00;
+            margin-bottom: 4px;
+        }
+
+        .point p {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Toggle button */
+        .toggle-btn {
+            background: none;
+            border: none;
+            color: #C8FF00;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: underline;
+            margin-bottom: 24px;
+            transition: color 0.3s ease;
+        }
+
+        .toggle-btn:hover {
+            color: #a8df00;
+        }
+
+        /* Full policy content */
+        .full-policy {
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 16px;
+            margin-bottom: 24px;
+            max-height: 256px;
+            overflow-y: auto;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.5;
+            display: none;
+        }
+
+        .full-policy.show {
+            display: block;
+        }
+
+        .policy-section {
+            margin-bottom: 12px;
+        }
+
+        .policy-section strong {
+            color: #C8FF00;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        /* Warning */
+        .warning {
+            background: rgba(255, 193, 7, 0.1);
+            border: 1px solid rgba(255, 193, 7, 0.3);
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 24px;
+        }
+
+        .warning p {
+            font-size: 12px;
+            color: rgba(255, 193, 7, 0.9);
+        }
+
+        .warning strong {
+            color: #ffc107;
+        }
+
+        /* Action buttons */
+        .actions {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .btn {
+            padding: 16px 24px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            border: none;
+            font-family: inherit;
+        }
+
+        .btn-accept {
+            background: linear-gradient(135deg, #C8FF00, #a8df00);
+            color: #000;
+        }
+
+        .btn-accept:hover {
+            background: linear-gradient(135deg, #a8df00, #90c700);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(200, 255, 0, 0.3);
+        }
+
+        .btn-decline {
+            background: rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-decline:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+        }
+
+        .footer p {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Icons */
+        .icon {
+            width: 20px;
+            height: 20px;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2;
+        }
+
+        .icon-lg {
+            width: 32px;
+            height: 32px;
+            stroke: #C8FF00;
+        }
+
+        /* Custom scrollbar */
+        .full-policy::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .full-policy::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+        }
+
+        .full-policy::-webkit-scrollbar-thumb {
+            background: #C8FF00;
+            border-radius: 2px;
+        }
+
+        /* Responsive */
+        @media (max-width: 480px) {
+            .content {
+                padding: 20px 16px;
+            }
             
-            <div className="border-l-4 border-blue-400 pl-4">
-              <h3 className="font-medium text-gray-900 mb-1">How we use it:</h3>
-              <p className="text-sm text-gray-600">Create personalized workout plans, meal recommendations, and track your progress</p>
-            </div>
-            
-            <div className="border-l-4 border-green-400 pl-4">
-              <h3 className="font-medium text-gray-900 mb-1">Data sharing:</h3>
-              <p className="text-sm text-gray-600">Your trainer sees relevant health info to provide safe, effective coaching</p>
-            </div>
-            
-            <div className="border-l-4 border-purple-400 pl-4">
-              <h3 className="font-medium text-gray-900 mb-1">Your control:</h3>
-              <p className="text-sm text-gray-600">Update, access, or delete your data anytime through app settings</p>
-            </div>
-          </div>
+            .main-card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Background Animation -->
+        <div class="bg-animation"></div>
 
-          {/* Read Full Policy Link */}
-          <div className="text-center mb-6">
-            <button 
-              onClick={() => setShowFullPolicy(!showFullPolicy)}
-              className="text-orange-600 text-sm font-medium hover:text-orange-700 underline"
-            >
-              {showFullPolicy ? 'Hide' : 'Read'} Full Privacy Policy
-            </button>
-          </div>
-
-          {/* Full Policy Content */}
-          {showFullPolicy && (
-            <div className="border-t border-gray-200 pt-4 mb-6">
-              <div className="max-h-64 overflow-y-auto text-xs text-gray-600 leading-relaxed space-y-3">
-                <div>
-                  <strong className="text-gray-800">Information We Collect:</strong>
-                  <p>We collect personal information (name, email, age, height, weight), health data (medical conditions, fitness levels, goals), dietary preferences, and progress tracking data to provide personalized fitness services.</p>
-                </div>
-                
-                <div>
-                  <strong className="text-gray-800">How We Use Your Information:</strong>
-                  <p>Your data is used to create customized workout plans, design meal plans, track progress, match you with suitable trainers, and ensure your safety during training.</p>
-                </div>
-                
-                <div>
-                  <strong className="text-gray-800">Data Security:</strong>
-                  <p>All data is encrypted during transmission and storage. We use bank-level security measures and regular security audits to protect your information.</p>
-                </div>
-                
-                <div>
-                  <strong className="text-gray-800">Your Rights:</strong>
-                  <p>You can access, update, or delete your data at any time. You control what information is shared with trainers and can modify your preferences anytime.</p>
-                </div>
-                
-                <div>
-                  <strong className="text-gray-800">Contact:</strong>
-                  <p>For privacy questions, contact us at privacy@burnzy.app</p>
-                </div>
-              </div>
+        <!-- Header -->
+        <div class="header">
+            <div class="header-left">
+                <button class="back-btn" onclick="goBack()">
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <path d="M19 12H5M12 19l-7-7 7-7"/>
+                    </svg>
+                </button>
+                <h1>Privacy Policy</h1>
             </div>
-          )}
-
-          {/* Warning for Decline */}
-          <div className="bg-amber-50 border border-amber-200 rounded-lg p-3 mb-6">
-            <p className="text-xs text-amber-800">
-              <strong>Note:</strong> Declining this privacy policy means you cannot use Burnzy's personalized fitness services, as we need this data to create safe and effective workout plans.
-            </p>
-          </div>
+            <div class="shield-icon">
+                <svg class="icon-lg" viewBox="0 0 24 24">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+            </div>
         </div>
 
-        {/* Action Buttons */}
-        <div className="space-y-3">
-          <button 
-            onClick={handleAccept}
-            className="w-full bg-orange-500 text-white py-4 px-6 rounded-xl font-semibold hover:bg-orange-600 transition-colors flex items-center justify-center space-x-2"
-          >
-            <CheckCircle className="w-5 h-5" />
-            <span>Accept & Continue</span>
-          </button>
-          
-          <button 
-            onClick={handleDecline}
-            className="w-full bg-gray-200 text-gray-700 py-4 px-6 rounded-xl font-semibold hover:bg-gray-300 transition-colors flex items-center justify-center space-x-2"
-          >
-            <XCircle className="w-5 h-5" />
-            <span>Decline</span>
-          </button>
-        </div>
+        <!-- Main Content -->
+        <div class="content">
+            <div class="main-card">
+                <!-- Intro Section -->
+                <div class="intro-section">
+                    <div class="intro-icon">
+                        <svg class="icon-lg" viewBox="0 0 24 24">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                    </div>
+                    <h2>Your Privacy & Data</h2>
+                    <p>We need your consent to collect and use your information to provide personalized fitness services.</p>
+                </div>
 
-        {/* Footer */}
-        <div className="text-center mt-6">
-          <p className="text-xs text-gray-500">
-            By accepting, you agree to our Privacy Policy and Terms of Service
-          </p>
-        </div>
+                <!-- Key Points -->
+                <div class="key-points">
+                    <div class="point">
+                        <h3>What we collect:</h3>
+                        <p>Personal info, health data, dietary preferences, and fitness progress</p>
+                    </div>
+                    
+                    <div class="point">
+                        <h3>How we use it:</h3>
+                        <p>Create personalized workout plans, meal recommendations, and track your progress</p>
+                    </div>
+                    
+                    <div class="point">
+                        <h3>Data sharing:</h3>
+                        <p>Your trainer sees relevant health info to provide safe, effective coaching</p>
+                    </div>
+                    
+                    <div class="point">
+                        <h3>Your control:</h3>
+                        <p>Update, access, or delete your data anytime through app settings</p>
+                    </div>
+                </div>
 
-      </div>
+                <!-- Toggle Button -->
+                <div style="text-align: center;">
+                    <button class="toggle-btn" onclick="toggleFullPolicy()">
+                        <span id="toggle-text">Read</span> Full Privacy Policy
+                    </button>
+                </div>
+
+                <!-- Full Policy Content -->
+                <div class="full-policy" id="full-policy">
+                    <div class="policy-section">
+                        <strong>Information We Collect:</strong>
+                        <p>We collect personal information (name, email, age, height, weight), health data (medical conditions, fitness levels, goals), dietary preferences, and progress tracking data to provide personalized fitness services.</p>
+                    </div>
+                    
+                    <div class="policy-section">
+                        <strong>How We Use Your Information:</strong>
+                        <p>Your data is used to create customized workout plans, design meal plans, track progress, match you with suitable trainers, and ensure your safety during training.</p>
+                    </div>
+                    
+                    <div class="policy-section">
+                        <strong>Data Security:</strong>
+                        <p>All data is encrypted during transmission and storage. We use bank-level security measures and regular security audits to protect your information.</p>
+                    </div>
+                    
+                    <div class="policy-section">
+                        <strong>Your Rights:</strong>
+                        <p>You can access, update, or delete your data at any time. You control what information is shared with trainers and can modify your preferences anytime.</p>
+                    </div>
+                    
+                    <div class="policy-section">
+                        <strong>Contact:</strong>
+                        <p>For privacy questions, contact us at tech@ecosleek.in</p>
+                    </div>
+                </div>
+
+                <!-- Warning -->
+                <div class="warning">
+                    <p><strong>Note:</strong> Declining this privacy policy means you cannot use Burnzy's personalized fitness services, as we need this data to create safe and effective workout plans.</p>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="actions">
+                <button class="btn btn-accept" onclick="handleAccept()">
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <path d="M9 12l2 2 4-4"/>
+                        <circle cx="12" cy="12" r="10"/>
+                    </svg>
+                    <span>Accept & Continue</span>
+                </button>
+                
+                <button class="btn btn-decline" onclick="handleDecline()">
+                    <svg class="icon" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="m15 9-6 6M9 9l6 6"/>
+                    </svg>
+                    <span>Decline</span>
+                </button>
+            </div>
+
+            <!-- Footer -->
+            <div class="footer">
+                <p>By accepting, you agree to our Privacy Policy and Terms of Service</p>
+            </div>
+        </div>
     </div>
-  );
-}
 
+    <script>
+        function toggleFullPolicy() {
+            const fullPolicy = document.getElementById('full-policy');
+            const toggleText = document.getElementById('toggle-text');
+            
+            if (fullPolicy.classList.contains('show')) {
+                fullPolicy.classList.remove('show');
+                toggleText.textContent = 'Read';
+            } else {
+                fullPolicy.classList.add('show');
+                toggleText.textContent = 'Hide';
+            }
+        }
+
+        function handleAccept() {
+            console.log("Privacy policy accepted");
+            // Add your accept logic here
+            showToast("Privacy policy accepted! Welcome to Burnzy!");
+        }
+
+        function handleDecline() {
+            console.log("Privacy policy declined");
+            // Add your decline logic here
+            showToast("Privacy policy declined. You cannot use Burnzy without accepting.");
+        }
+
+        function goBack() {
+            // Add navigation logic here
+            console.log("Going back");
+        }
+
+        function showToast(message) {
+            // Simple toast notification
+            const toast = document.createElement('div');
+            toast.style.cssText = `
+                position: fixed;
+                top: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                background: #C8FF00;
+                color: #000;
+                padding: 16px 24px;
+                border-radius: 8px;
+                font-weight: 600;
+                z-index: 1000;
+                box-shadow: 0 4px 12px rgba(200, 255, 0, 0.3);
+            `;
+            toast.textContent = message;
+            document.body.appendChild(toast);
+            
+            setTimeout(() => {
+                document.body.removeChild(toast);
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
 
 
